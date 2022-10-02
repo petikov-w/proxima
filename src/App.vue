@@ -1,16 +1,20 @@
 <template lang="pug">
-Header
 .wrapper
+  Header
+  .wrapper-content
+    .container
+      router-view
+  Footer
 </template>
 
 <script>
-import Header from "@/components/header";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 export default {
-  name: "App",
-  components: { Header }
-}
+    components: { Header, Footer}
+  }
 </script>
 
-<style scoped>
+<style lang="scss">
 
 </style>

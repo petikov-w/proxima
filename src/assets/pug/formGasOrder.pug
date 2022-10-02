@@ -1,0 +1,20 @@
+form.note-form(@submit.prevent="onSubmit")
+    .header-title
+        .form-title Получите расчет стоимости доставки
+        .close-form(@click="hiddenDialogCloseBtn") &#10005
+    input(
+        required
+        name="name"
+        v-model="in_name"
+        placeholder="Имя")
+    input(
+        required
+        name="telefon"
+        v-model="in_telefon"
+        placeholder="Телефон")
+    img(src="@/assets/images/btn_zakaz_gaz.png" @click="hiddenDialog")
+//input(
+//  type="image"
+//  name="picture"
+//  src="@/assets/images/btn_zakaz_gaz.png"
+//  @click="hiddenDialog")
