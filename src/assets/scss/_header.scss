@@ -1,4 +1,8 @@
 .header-wrapper {
+  //position: fixed;
+  //position: sticky;
+  //left: 160px;
+  //z-index: 99;
   width: 1100px;
   margin: 0 auto;
   display: flex;
@@ -9,6 +13,7 @@
     align-items: center;
   }
   img, .m-top {
+    //position: fixed;
     margin-top: 25px;
   }
   .info {
@@ -16,11 +21,14 @@
     flex-direction: column;
     justify-content: flex-start;
 
+
     span {
       font-family: $font-OpenSans;
       @include font(16px, 600, 22px, #EF5221);
       margin-top: 5px;
       text-decoration: underline;
+      //position: fixed;
+      //right: 0;
       @media screen and (max-width: $phoneWidth) {
         //text-align: center;
         display: none;
