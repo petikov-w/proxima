@@ -17,14 +17,8 @@ html {
 }
 
 body {
-  //background-color: #1C2739;
-  background: #1C2739 url(@/assets/images/main-page-pic.png)  no-repeat;
-  //background: #1C2739 url(@/assets/images/main-page-pic.png)  cover;
+  background: #1C2739 url(@/assets/images/main-page-pic.png)  no-repeat fixed;
   background-position-x: 58%;
-  //background-size: cover;
-  //font-family: $mainFont;
-  //font-size: $mainFontSize;
-  //font-weight: $mainFontWeight;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
@@ -135,6 +129,8 @@ section,
   }
 }
 
-
+.bold {
+  font-weight: bold;
+}
 
 
