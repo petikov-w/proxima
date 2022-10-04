@@ -16,7 +16,30 @@
   ul
     li(v-for="item in pageList2_2_Items" :key="index")
       .pageText(v-html="item" )
-
+  .pageText.bold.b5(v-html="pageList3Title" )
+  .pageText(v-html="pageList3SubTitle" )
+  ul
+    li(v-for="item in pageList3_1_Items" :key="index")
+      .pageText(v-html="item" )
+    ul
+      li(v-for="item in pageList3_1_sub_Items" :key="index")
+        .pageText(v-html="item" )
+  ul
+    li(v-for="item in pageList3_2_Items" :key="index")
+      .pageText(v-html="item" )
+    ul
+      li(v-for="item in pageList3_2_sub_Items" :key="index")
+        .pageText(v-html="item" )
+  ul
+    li(v-for="item in pageList3_3_Items" :key="index")
+      .pageText(v-html="item" )
+  .pageText.bold.b5(v-html="pageList4Title" )
+  ul
+    li(v-for="item in pageList4Items" :key="index")
+      .pageText(v-html="item" )
+    ul
+      li(v-for="item in pageList4_sub_Items" :key="index")
+        .pageText(v-html="item" )
   .pageText.bold.b5(v-html="pageList5Title" )
   ul
     li(v-for="item in pageList5Items" :key="index")
@@ -41,7 +64,16 @@ export default {
     const pageList2_1_Items = computed(() => store.getters.getList2_1_Items);
     const pageList2_2_Items = computed(() => store.getters.getList2_2_Items);
     const pageList2_sub_Items = computed(() => store.getters.getList2_sub_Items);
-
+    const pageList3Title = computed(() => store.getters.getList3Title);
+    const pageList3SubTitle = computed(() => store.getters.getList3SubTitle);
+    const pageList3_1_Items = computed(() => store.getters.getList3_1_Items);
+    const pageList3_2_Items = computed(() => store.getters.getList3_2_Items);
+    const pageList3_3_Items = computed(() => store.getters.getList3_3_Items);
+    const pageList3_1_sub_Items = computed(() => store.getters.getList3_1_sub_Items);
+    const pageList3_2_sub_Items = computed(() => store.getters.getList3_2_sub_Items);
+    const pageList4Title = computed(() => store.getters.getList4Title);
+    const pageList4Items = computed(() => store.getters.getList4Items);
+    const pageList4_sub_Items = computed(() => store.getters.getList4_sub_Items);
     const pageList5Title = computed(() => store.getters.getList5Title);
     const pageList5Items = computed(() => store.getters.getList5Items);
 
@@ -53,6 +85,16 @@ export default {
              pageList2_1_Items,
              pageList2_2_Items,
              pageList2_sub_Items,
+             pageList3Title,
+             pageList3SubTitle,
+             pageList3_1_Items,
+             pageList3_2_Items,
+             pageList3_3_Items,
+             pageList3_1_sub_Items,
+             pageList3_2_sub_Items,
+             pageList4Title,
+             pageList4Items,
+             pageList4_sub_Items,
              pageList5Title,
              pageList5Items }
   }
