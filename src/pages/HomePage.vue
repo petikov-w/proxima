@@ -47,6 +47,7 @@ export default {
 
 
 
+
     const showDialog = () => {dialogVisible.value=true}
     const hiddenDialogCloseBtn = () => {dialogVisible.value=false;}
     const hiddenDialog = () => {dialogVisible.value=false; $router.push('/thankyou')}

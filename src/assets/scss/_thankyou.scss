@@ -1,9 +1,10 @@
 .wrapper-thank {
   width: 1100px;
   margin: 0 auto;
-  min-height: 80vh;
+  min-height: 95vh;
   font-family: $font-RussoOne;
   text-transform: uppercase;
+  padding-top: 90px;
   .thenk {
     display: flex;
     flex-direction: column;
@@ -35,7 +36,7 @@
       }
     }
     img {
-      width: 38%;
+     // width: 38%;
       @media screen and (max-width: $phoneWidth) {
         margin-left: -45px;
         width: 70%;

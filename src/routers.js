@@ -60,7 +60,8 @@ const routers = createRouter(
                     title: "404 - страница не найдена"
                 }
             },
-        ]
+        ],
+
     }
 )
 
@@ -68,5 +69,8 @@ routers.beforeEach((to,from, next) => {
     document.title = `PROXIMA - ${to.meta.title}`;
     next();
 })
+
+
+
 
 export default routers;
