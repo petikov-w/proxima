@@ -20,7 +20,8 @@ footer.footer
 import {useStore} from 'vuex';
 import {useRoute} from 'vue-router';
 import {computed} from "vue";
-//import functions from "@/assets/js/functions";
+import {sk} from "../assets/js/functions"
+
 export default {
   name: 'Footer-m',
   setup() {
@@ -34,8 +35,6 @@ export default {
 
     const policy = computed(() => store.getters.getPolicy);
     const agreement = computed(() => store.getters.getUserAgreement);
-    const sk = scrollToTop => {window.scrollTo(0,0);};
-    //const sk = functions.sk();
 
     return {policy, agreement, isHome, isPolicy, isUserAgreement, isThankYou, is404, sk}
 

@@ -27,6 +27,7 @@ import Dialog from "@/components/UI/Dialog";
 import {ref} from "vue"
 import {useStore} from 'vuex';
 import {computed} from "vue";
+import {sk} from "../assets/js/functions"
 import $router from "@/routers";
 
 export default {
@@ -45,12 +46,9 @@ export default {
     const imgBigCar = computed(() => store.getters.getImageBigCar);
     const advantage = computed(() => store.getters.getAdvantageList);
 
-
-
-
     const showDialog = () => {dialogVisible.value=true}
     const hiddenDialogCloseBtn = () => {dialogVisible.value=false;}
-    const hiddenDialog = () => {dialogVisible.value=false; $router.push('/thankyou')}
+    const hiddenDialog = () => {dialogVisible.value=false; $router.push('/thankyou'),sk()}
     return {
             in_name,
             in_telefon,
