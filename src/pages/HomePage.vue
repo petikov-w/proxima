@@ -2,6 +2,7 @@
 Dialog(v-model:show="dialogVisible")
   include ../assets/pug/formGasOrder
 .wrapper-home
+  h1 {{ order }}
   section-01
     .left-col
       .title {{ title }}
@@ -19,6 +20,7 @@ Dialog(v-model:show="dialogVisible")
       img(:src="item.img")
       .title-adv(v-html='item.title')
       .subtitle-adv(v-html='item.descr')
+
 </template>
 
 <script>
@@ -44,13 +46,20 @@ export default {
     const btnOrder = computed(() => store.getters.getButtonOrdrer);
     const imgBigCar = computed(() => store.getters.getImageBigCar);
     const advantage = computed(() => store.getters.getAdvantageList);
+    const order = computed(() => store.getters.getOrder);
 
 
 
 
     const showDialog = () => {dialogVisible.value=true}
     const hiddenDialogCloseBtn = () => {dialogVisible.value=false;}
-    const hiddenDialog = () => {dialogVisible.value=false; console.log("--1--> ", in_name.value),console.log("--2--> ", in_telefon.value),$router.push('/thankyou')}
+    const hiddenDialog = () => {
+                    dialogVisible.value = false;
+                    // console.log("--1--> ", in_name.value),
+                    // console.log("--2--> ", in_telefon.value),
+                    store.dispatch("zetOrder")
+                    $router.push('/thankyou')
+    }
     return {
             in_name,
             in_telefon,
@@ -61,6 +70,7 @@ export default {
             btnOrder,
             imgBigCar,
             advantage,
+            order,
             showDialog,
             hiddenDialog,
             hiddenDialogCloseBtn}
