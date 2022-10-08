@@ -1,16 +1,15 @@
 form.note-form(@submit.prevent="onSubmit")
     .header-title
-        //.form-title Получите расчет стоимости доставки
-        .form-title {{ form_title }}
+        .form-title Задайте срочный вопрос
         .close-form(@click="hiddenDialogCloseBtn") &#10005
     input(
         required
         name="name"
-        v-model="in_name"
+        v-model="eq_name"
         placeholder="Имя")
     input(
         required
         name="telefon"
-        v-model="in_telefon"
+        v-model="eq_telefon"
         placeholder="Телефон")
     img(src="@/assets/images/btn_zakaz_gaz.png" @click="hiddenDialog")

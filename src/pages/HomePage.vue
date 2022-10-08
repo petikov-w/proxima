@@ -26,17 +26,18 @@ Dialog(v-model:show="dialogVisible")
 <script>
 
 import Dialog from "@/components/UI/Dialog";
-import {ref} from "vue"
 import {useStore} from 'vuex';
-import {computed} from "vue";
+import {ref, computed} from "vue";
 import $router from "@/routers";
 
 export default {
   name: "HomePage",
   components: {Dialog},
+  // setup: function () {
   setup() {
     let in_name = ref("")
     let in_telefon = ref("")
+    const form_title = "Получите расчет стоимости доставки";
     const dialogVisible = ref(false)
 
     const store = useStore();
@@ -49,31 +50,39 @@ export default {
     const order = computed(() => store.getters.getOrder);
 
 
-
-
-    const showDialog = () => {dialogVisible.value=true}
-    const hiddenDialogCloseBtn = () => {dialogVisible.value=false;}
+    const showDialog = () => {
+      dialogVisible.value = true
+    }
+    const hiddenDialogCloseBtn = () => {
+      dialogVisible.value = false;
+    }
     const hiddenDialog = () => {
-                    dialogVisible.value = false;
-                    // console.log("--1--> ", in_name.value),
-                    // console.log("--2--> ", in_telefon.value),
-                    store.dispatch("zetOrder")
-                    $router.push('/thankyou')
+      dialogVisible.value = false;
+      let formData = new FormData();
+      formData.append('name', in_name.value);
+      formData.append('telefon', in_telefon.value);
+      formData.append('subject', "Заказ доставки газа");
+      in_name.value="";
+      in_telefon.value="";
+      store.dispatch("zetOrder",  formData )
+      $router.push('/thankyou')
     }
     return {
-            in_name,
-            in_telefon,
-            dialogVisible,
-            title,
-            subtitle,
-            info,
-            btnOrder,
-            imgBigCar,
-            advantage,
-            order,
-            showDialog,
-            hiddenDialog,
-            hiddenDialogCloseBtn}
+      in_name,
+      in_telefon,
+      dialogVisible,
+      title,
+      subtitle,
+      info,
+      btnOrder,
+      imgBigCar,
+      advantage,
+      order,
+      form_title,
+      showDialog,
+      hiddenDialog,
+      hiddenDialogCloseBtn
+    }
   }
 }
 </script>

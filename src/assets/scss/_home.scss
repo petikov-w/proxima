@@ -80,6 +80,7 @@
       }
       img {
         z-index: 1;
+        cursor: pointer;
         @media screen and (max-width: $phoneWidth) {
           max-width: 190%;
           //margin-left: 20px;

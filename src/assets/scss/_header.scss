@@ -30,6 +30,7 @@
       @include font(16px, 600, 22px, #EF5221);
       margin-top: 5px;
       text-decoration: underline;
+      cursor: pointer;
       //position: fixed;
       //right: 0;
       @media screen and (max-width: $phoneWidth) {
