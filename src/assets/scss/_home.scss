@@ -13,7 +13,7 @@
   @media screen and (max-width: $phoneWidth) {
     flex-direction: column;
     width: 380px;
-    align-items: center;
+    align-items: flex-start;
   }
   section-01 {
     display: flex;
@@ -28,7 +28,9 @@
       @media screen and (max-width: $phoneWidth) {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
+        justify-content: flex-start;
+        //align-items: center;
       }
       .title {
         @include font(48px, 400, 58px, #EF5221);
@@ -36,7 +38,8 @@
         @media screen and (max-width: $phoneWidth) {
           @include font(36px, 400, 44px, #EF5221);
           max-width: 360px;
-          text-align: center;
+          text-align: left;
+          //text-align: center;
           margin-left: -30px;
         }
       }

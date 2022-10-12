@@ -1,7 +1,6 @@
 <template lang="pug">
 Dialog(v-model:show="dialogVisible")
-  include ../assets/pug/formGasOrder
-  //include ../assets/pug/formExpressQuestion
+  include ../assets/pug/formExpressQuestion
 .header-wrapper
   img(v-if="isHome" :src='logo' alt="logo")
   router-link(v-if="!isHome" :to={name:"home"} @click="sk" class="link" )
@@ -9,7 +8,6 @@ Dialog(v-model:show="dialogVisible")
   .info
     Telefon(:tel='contact_telefon' class="m-top")
     span(@click="showDialog") {{ subtitle }}
-    //router-link(class="navbar-logo" to="/")
 </template>
 
 <script>
@@ -25,9 +23,10 @@ export default {
   name: 'vHeader',
   components: {Telefon, Dialog},
   setup() {
-    let in_name = ref("")
-    let in_telefon = ref("")
-    const form_title = "Задайте свой вопрос оператору";
+    let eq_name = ref("");
+    let eq_telefon = ref("");
+    let eq_question = ref("");
+    const form_title = "Задайте свой вопрос";
     const dialogVisible = ref(false)
 
     const store = useStore();
@@ -45,17 +44,19 @@ export default {
     const hiddenDialog = () => {
       dialogVisible.value = false;
       let formData = new FormData();
-      formData.append('name', in_name.value);
-      formData.append('telefon', in_telefon.value);
-      formData.append('subject', "Срочный вопрос");
-      in_name.value="";
-      in_telefon.value="";
-      store.dispatch("zetOrder",  formData );
+      formData.append('name', eq_name.value);
+      formData.append('telefon', eq_telefon.value);
+      formData.append('question', eq_question.value);
+      eq_name.value="";
+      eq_telefon.value="";
+      eq_question.value="";
+      store.dispatch("sendMail",  formData );
       $router.push('/thankyou')
     }
 
-    return {in_telefon,
-            in_name,
+    return {eq_telefon,
+            eq_name,
+            eq_question,
             logo,
             dialogVisible,
             contact_telefon,

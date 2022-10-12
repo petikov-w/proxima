@@ -1,41 +1,40 @@
 .header-wrapper {
   position: fixed;
-  //position: sticky;
-  //left: 160px;
   z-index: 99;
-  //width: 1100px;
+  width: 1100px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  //background-color: #1F293B;
   background-color: #27303F;
-
+  @media screen and (max-width: $desktopWidth) {
+  }
+  @media screen and (max-width: $smDesktopWidth) {
+  }
   @media screen and (max-width: $phoneWidth) {
-    max-width: $smPhoneWidth;
+    position: static;
+    margin: 0;
+    width: $smPhoneWidth;
     flex-direction: column;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
   img, .m-top {
-    //position: fixed;
     margin-top: 25px;
   }
   .info {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    margin-left: 650px;
-
+    //margin-left: 650px;
     span {
       font-family: $font-OpenSans;
       @include font(16px, 600, 22px, #EF5221);
       margin-top: 5px;
       text-decoration: underline;
       cursor: pointer;
-      //position: fixed;
-      //right: 0;
       @media screen and (max-width: $phoneWidth) {
         //text-align: center;
-        display: none;
+        margin-left: 0;
       }
     }
   }

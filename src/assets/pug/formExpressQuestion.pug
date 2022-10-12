@@ -1,6 +1,6 @@
 form.note-form(@submit.prevent="onSubmit")
     .header-title
-        .form-title Задайте срочный вопрос
+        .form-title {{ form_title }}
         .close-form(@click="hiddenDialogCloseBtn") &#10005
     input(
         required
@@ -12,4 +12,9 @@ form.note-form(@submit.prevent="onSubmit")
         name="telefon"
         v-model="eq_telefon"
         placeholder="Телефон")
-    img(src="@/assets/images/btn_zakaz_gaz.png" @click="hiddenDialog")
+    textarea(
+        required
+        name="question"
+        v-model="eq_question"
+        placeholder="Вопрос")
+    img(src="@/assets/images/button-question.png" @click="hiddenDialog")

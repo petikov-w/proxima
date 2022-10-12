@@ -1,7 +1,8 @@
-const api = 'http://api.proxima.loc'; // локальный сервер
+//const api = 'http://api.proxima.loc'; // локальный сервер
+const api = 'https://api.proxima.kroxdev.ru' // хостинг
 import axios from "axios";
 
-export const  zetOrder = ({commit}, formData) => {
+export const  setOrder = ({commit}, formData) => {
     axios({
         method: "post",
         url: `${api}/orders`,

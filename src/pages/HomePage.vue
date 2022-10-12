@@ -2,7 +2,6 @@
 Dialog(v-model:show="dialogVisible")
   include ../assets/pug/formGasOrder
 .wrapper-home
-  h1 {{ order }}
   section-01
     .left-col
       .title {{ title }}
@@ -64,7 +63,7 @@ export default {
       formData.append('subject', "Заказ доставки газа");
       in_name.value="";
       in_telefon.value="";
-      store.dispatch("zetOrder",  formData )
+      store.dispatch("setOrder",  formData )
       $router.push('/thankyou')
     }
     return {
