@@ -26,7 +26,7 @@ Dialog(v-model:show="dialogVisible")
 
 import Dialog from "@/components/UI/Dialog";
 import {useStore} from 'vuex';
-import {ref, computed} from "vue";
+import {ref, computed, onMounted, onUnmounted} from "vue";
 import $router from "@/routers";
 
 export default {
@@ -38,6 +38,7 @@ export default {
     let in_telefon = ref("")
     const form_title = "Получите расчет стоимости доставки";
     const dialogVisible = ref(false)
+    let wws = ref(0);
 
     const store = useStore();
     const title = computed(() => store.getters.getTitle);
@@ -47,7 +48,20 @@ export default {
     const imgBigCar = computed(() => store.getters.getImageBigCar);
     const advantage = computed(() => store.getters.getAdvantageList);
     const order = computed(() => store.getters.getOrder);
+    const ww = computed(() => store.getters.getWindowWidth);
 
+
+    const handleResize = () => {window.width = window.innerWidth;
+    wws=window.width}
+
+    onMounted(() => {
+      window.addEventListener('resize', handleResize());
+      handleResize();
+    })
+
+    onUnmounted(() => {
+      window.removeEventListener('resize', handleResize());
+    })
 
     const showDialog = () => {
       dialogVisible.value = true
@@ -67,6 +81,7 @@ export default {
       $router.push('/thankyou')
     }
     return {
+      ww,
       in_name,
       in_telefon,
       dialogVisible,

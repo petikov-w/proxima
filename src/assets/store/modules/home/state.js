@@ -1,5 +1,6 @@
 export default {
     order: [],
+    width_win: {width:0},
     main_content: {
         title: "Качественный газ для газгольдера",
         subtitle_home: "Доставка в любое время дня и ночи вне зависимости от погодных условий",
