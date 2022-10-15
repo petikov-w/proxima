@@ -1,0 +1,106 @@
+.wrapper-home-m {
+  //width: 380px;
+  //overflow-x:hidden;
+ // max-width: 40vw;
+  font-family: $font-RussoOne;
+  font-weight: 400;
+  text-align: left;
+  .title-m {
+    font-family: $font-RussoOne;
+    @include font(36px, 400, 46px, #EF5221);
+    width: 360px;
+    text-align: center;
+    margin-left: -10px;
+  }
+  .subtitle-m {
+    @include font(21px, 400, 25px, #ffffff);
+    margin: 15px 0 27px;
+    min-width: 360px;
+    text-align: center;
+  }
+  img {
+    z-index: 1;
+    cursor: pointer;
+    max-width: 350px;
+  }
+  img:hover {
+    opacity: 0.8;
+  }
+
+  .set-prosent-m {
+    display: flex;
+    margin-left: 55px;
+
+    .info {
+      display: flex;
+      align-items: center;
+
+      &:not(:last-child):after {
+        content: '';
+        height: 55%;
+        width: 1.5px;
+        margin: 5px 25px 0 5px;
+        background: rgba(241, 241, 241, 0.3);
+      }
+      .info-gaz {
+        display: flex;
+        flex-direction: column;
+        //justify-content: center;
+        text-align: center;
+        margin: 20px 20px 15px 0;
+        opacity: 0.7;
+        .procent {
+          @include font(36px, 400, 43px, #f1f1f1);
+        }
+        .name-gaz {
+          @include font(18px, 400, 22px, #f1f1f1);
+        }
+      }
+    }
+  }
+
+  section-02 {
+    display: flex;
+    flex-direction: column;
+
+    margin: 15vw;
+   // justify-content: space-between;
+    .advantage {
+      //position: relative;
+      width: 247px;
+      height: 213px;
+      border-radius: 20px;
+      //background-color: #f1f1f1;
+      background: rgba(241, 241, 241, 0.2);
+      margin: 60px 0 15px 0;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      &:nth-child(4) {
+        img {
+          margin-top: -68px;
+          margin-bottom: -5px;
+        }
+      }
+
+      .title-adv {
+        font-family: $font-RussoOne;
+        @include font(20px, 400, 24px, #EF6D00);
+        padding: 5px 0 15px 0;
+        text-align: center;
+      }
+      .subtitle-adv {
+        font-family: $font-OpenSans;
+        @include font(14px, 400, 19px, rgba(241, 241, 241, 0.8));
+        padding: 5px 20px;
+        text-align: center;
+        &:nth-child(4) {
+          color: red;
+        }
+      }
+      img {
+        margin-top: -30px;
+      }
+    }
+  }
+}

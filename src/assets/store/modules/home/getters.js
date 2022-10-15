@@ -6,7 +6,8 @@ export const getButtonToMain = (state) => state.images.button_to_home;
 export const getImageBigCar = (state) => state.images.big_car;
 export const getAdvantageList = (state) => state.advantage.list;
 export const getOrder = (state) => state.order;
-export const getWindowWidth = (state) => state.width_win;
+export const getIsDesktop = (state) => state.isDesktop;
+export const getIsMobile = (state) => state.isMobile;
 
 
 

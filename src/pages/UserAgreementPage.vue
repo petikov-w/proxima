@@ -1,39 +1,10 @@
 <template lang="pug">
-.wrapper-home
-  .pageTitle {{ pageTitle }}
-  .pageText(v-html="pageSubTitle")
-  .pageText.bold.b5(v-html="pageList1Title" )
-  ul
-    li(v-for="item in pageList1Items" :key="index")
-      .pageText(v-html="item" )
-  .pageText.bold.b5(v-html="pageList2Title" )
-  ul
-    li(v-for="item in pageList2Items" :key="index")
-      .pageText(v-html="item" )
-  .pageText.bold.b5(v-html="pageList3Title" )
-  ul
-    li(v-for="item in pageList3Items" :key="index")
-      .pageText(v-html="item" )
-  .pageText.bold.b5(v-html="pageList4Title" )
-  ul
-    li(v-for="item in pageList4Items" :key="index")
-      .pageText(v-html="item" )
-  .pageText.bold.b5(v-html="pageList5Title" )
-  ul
-    li(v-for="item in pageList5Items" :key="index")
-      .pageText(v-html="item" )
-  .pageText.bold.b5(v-html="pageList6Title" )
-  ul
-    li(v-for="item in pageList6Items" :key="index")
-      .pageText(v-html="item" )
-  .pageText.bold.b5(v-html="pageList7Title" )
-  ul
-    li(v-for="item in pageList7Items" :key="index")
-      .pageText(v-html="item" )
-  .pageText.bold.b5(v-html="pageList8Title" )
-  ul
-    li(v-for="item in pageList8Items" :key="index")
-      .pageText(v-html="item" )
+div(v-if="isDesktop")
+  .wrapper-home
+    include ../assets/pug/agreement
+div(v-if="isMobile")
+  .wrapper-home-m
+    include ../assets/pug/agreement
 </template>
 
 <script>
@@ -63,6 +34,8 @@ export default {
     const pageList7Items = computed(() => store.getters.getList7ItemsAgreement);
     const pageList8Title = computed(() => store.getters.getList8TitleAgreement);
     const pageList8Items = computed(() => store.getters.getList8ItemsAgreement);
+    const isMobile = computed(() => store.getters.getIsMobile);
+    const isDesktop = computed(() => store.getters.getIsDesktop);
     return { pageTitle,
              pageSubTitle,
              pageList1Title,
@@ -80,7 +53,9 @@ export default {
              pageList7Title,
              pageList7Items,
              pageList8Title,
-             pageList8Items
+             pageList8Items,
+             isMobile,
+             isDesktop
     }
   }
 }

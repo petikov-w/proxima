@@ -16,3 +16,6 @@ export const  setOrder = ({commit}, formData) => {
             console.log('error --->>> ', error.data);
         });
 }
+
+export const  setMobile=({commit}) => { commit('switch_mobile')}
+export const  setDesktop=({commit}) => { commit('switch_desktop')}

@@ -1,51 +1,26 @@
 <template lang="pug">
 Dialog(v-model:show="dialogVisible")
   include ../assets/pug/formGasOrder
-  //----------------------- Десктопная версия -----------------------
-div(v-if="isDesktop" )
-  .wrapper-home
-    section-01
-      .left-col
-        //h1(v-if="isMobile" style="color:#ffffff;") Мобильная версия
-        //h1(v-if="isDesktop" style="color:#ffffff;") Десктопная версия
-        .title {{ title }}
-        .set-prosent
-          .info(v-for="(info,index) in info" :key="index")
-            .info-gaz
-              .procent {{ info.procent }}
-              .name-gaz {{ info.gaz }}
-        .subtitle {{ subtitle }}
-        img(:src="btnOrder" @click="showDialog")
-      .right-col
-        img(:src="imgBigCar" class="img-car")
-    section-02
-      .advantage(v-for="(item,index) in advantage" :key="index")
-        img(:src="item.img")
-        .title-adv(v-html='item.title')
-        .subtitle-adv(v-html='item.descr')
-  //----------------------- Мобильная версия -----------------------
-div(v-if="isMobile" )
-  .wrapper-home-m
-    //section-01m
-      //.left-col
-    //h1(v-if="isMobile" style="color:#ffffff;") Мобильная версия
-    //h1(v-if="isDesktop" style="color:#ffffff;") Десктопная версия
-    .title-m {{ title }}
-    .set-prosent-m
-      .info(v-for="(info,index) in info" :key="index")
-        .info-gaz
-          .procent {{ info.procent }}
-          .name-gaz {{ info.gaz }}
-    .subtitle-m {{ subtitle }}
-    img(:src="btnOrder" @click="showDialog")
-    //.right-col
-    //  img(:src="imgBigCar" class="img-car")
-    section-02
-      .advantage(v-for="(item,index) in advantage" :key="index")
-        img(:src="item.img")
-        .title-adv(v-html='item.title')
-        .subtitle-adv(v-html='item.descr')
-
+.wrapper-home
+  section-01
+    .left-col
+      h1(v-if="isMobile" style="color:#ffffff;") Мобильная версия
+      h1(v-if="isDesktop" style="color:#ffffff;") Десктопная версия
+      .title {{ title }}
+      .set-prosent
+        .info(v-for="(info,index) in info" :key="index")
+          .info-gaz
+            .procent {{ info.procent }}
+            .name-gaz {{ info.gaz }}
+      .subtitle {{ subtitle }}
+      img(:src="btnOrder" @click="showDialog")
+    .right-col
+      img(:src="imgBigCar" class="img-car")
+  section-02
+    .advantage(v-for="(item,index) in advantage" :key="index")
+      img(:src="item.img")
+      .title-adv(v-html='item.title')
+      .subtitle-adv(v-html='item.descr')
 
 </template>
 
@@ -53,9 +28,9 @@ div(v-if="isMobile" )
 
 import Dialog from "@/components/UI/Dialog";
 import {useStore} from 'vuex';
-import {ref, computed} from "vue";
+import {ref, computed, onMounted, onUnmounted} from "vue";
 import $router from "@/routers";
-
+// import ScreenSize from 'screen-size-vue'
 
 export default {
   name: "HomePage",

@@ -1,49 +1,10 @@
 <template lang="pug">
-.wrapper-home
-  .pageTitle {{ pageTitle }}
-  .pageText(v-html="pageSubTitle")
-  .pageText.bold.b5(v-html="pageList1Title" )
-  ul
-    li(v-for="item in pageList1Items" :key="index")
-      .pageText(v-html="item" )
-  .pageText.bold.b5(v-html="pageList2Title" )
-  ul
-    li(v-for="item in pageList2_1_Items" :key="index")
-      .pageText(v-html="item" )
-    ul
-      li(v-for="item in pageList2_sub_Items" :key="index")
-        .pageText(v-html="item" )
-  ul
-    li(v-for="item in pageList2_2_Items" :key="index")
-      .pageText(v-html="item" )
-  .pageText.bold.b5(v-html="pageList3Title" )
-  .pageText(v-html="pageList3SubTitle" )
-  ul
-    li(v-for="item in pageList3_1_Items" :key="index")
-      .pageText(v-html="item" )
-    ul
-      li(v-for="item in pageList3_1_sub_Items" :key="index")
-        .pageText(v-html="item" )
-  ul
-    li(v-for="item in pageList3_2_Items" :key="index")
-      .pageText(v-html="item" )
-    ul
-      li(v-for="item in pageList3_2_sub_Items" :key="index")
-        .pageText(v-html="item" )
-  ul
-    li(v-for="item in pageList3_3_Items" :key="index")
-      .pageText(v-html="item" )
-  .pageText.bold.b5(v-html="pageList4Title" )
-  ul
-    li(v-for="item in pageList4Items" :key="index")
-      .pageText(v-html="item" )
-    ul
-      li(v-for="item in pageList4_sub_Items" :key="index")
-        .pageText(v-html="item" )
-  .pageText.bold.b5(v-html="pageList5Title" )
-  ul
-    li(v-for="item in pageList5Items" :key="index")
-      .pageText(v-html="item" )
+div(v-if="isDesktop")
+  .wrapper-home
+    include ../assets/pug/policy
+div(v-if="isMobile")
+  .wrapper-home-m
+    include ../assets/pug/policy
 
 </template>
 
@@ -76,6 +37,8 @@ export default {
     const pageList4_sub_Items = computed(() => store.getters.getList4_sub_Items);
     const pageList5Title = computed(() => store.getters.getList5Title);
     const pageList5Items = computed(() => store.getters.getList5Items);
+    const isMobile = computed(() => store.getters.getIsMobile);
+    const isDesktop = computed(() => store.getters.getIsDesktop);
 
     return { pageTitle,
              pageSubTitle,
@@ -96,7 +59,9 @@ export default {
              pageList4Items,
              pageList4_sub_Items,
              pageList5Title,
-             pageList5Items }
+             pageList5Items,
+             isMobile,
+             isDesktop }
   }
 }
 </script>

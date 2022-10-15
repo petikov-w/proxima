@@ -1,13 +1,22 @@
 <template lang="pug">
 Dialog(v-model:show="dialogVisible")
   include ../assets/pug/formExpressQuestion
-.header-wrapper
-  img(v-if="isHome" :src='logo' alt="logo")
-  router-link(v-if="!isHome" :to={name:"home"} @click="sk" class="link" )
-    img(:src='logo' alt="logo")
-  .info
-    Telefon(:tel='contact_telefon' class="m-top")
-    span(@click="showDialog") {{ subtitle }}
+div(v-if="isDesktop" )
+  .header-wrapper
+    img(v-if="isHome" :src='logo' alt="logo")
+    router-link(v-if="!isHome" :to={name:"home"} @click="sk" class="link" )
+      img(:src='logo' alt="logo")
+    .info
+      Telefon(:tel='contact_telefon' class="m-top")
+      span(@click="showDialog") {{ subtitle }}
+div(v-if="isMobile" )
+  .header-wrapper-m
+    img(v-if="isHome" :src='logo' width="250" alt="logo")
+    router-link(v-if="!isHome" :to={name:"home"} @click="sk" class="link" )
+      img(:src='logo' width="250" alt="logo")
+    .info
+      Telefon(:tel='contact_telefon' class="m-top")
+      //span(@click="showDialog") {{ subtitle }}
 </template>
 
 <script>
@@ -35,6 +44,8 @@ export default {
     const logo = computed(() => store.getters.getLogo);
     const contact_telefon = computed(() => store.getters.getTelefon);
     const subtitle = computed(() => store.getters.getSubtitleHeader);
+    const isMobile = computed(() => store.getters.getIsMobile);
+    const isDesktop = computed(() => store.getters.getIsDesktop);
     const showDialog = () => {
       dialogVisible.value = true
     }
@@ -62,6 +73,8 @@ export default {
             contact_telefon,
             subtitle,
             isHome,
+            isMobile,
+            isDesktop,
             form_title,
             showDialog,
             hiddenDialogCloseBtn,

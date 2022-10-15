@@ -40,13 +40,6 @@ h6 {
   margin: 0;
 }
 
-//.article-title {
-//  margin: 20px 0 20px 0;
-//  color: green;
-//  font-size: 1.3rem;
-//  font-weight: 600;
-//}
-
 input,
 textarea,
 select,
@@ -65,22 +58,6 @@ li {
   padding: 0;
 }
 
-footer, // also footer if footer without section
-section,
-.section {
-  position: relative;
-  padding: 40px 0;
-  @media screen and (max-width: $desktopWidth) {
-    padding: 36px 0;
-  }
-  @media screen and (max-width: $desktopWidth) {
-    padding: 28px 0;
-  }
-  @media screen and (max-width: $desktopWidth) {
-    padding: 20px 0;
-  }
-}
-
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -88,46 +65,28 @@ section,
   width: 1100px;
   margin: 0 auto;
 }
+.wrapper-m {
+  display: flex;
+  flex-direction: column;
+}
 
 .wrapper-content {
   display: flex;
   flex-direction: column;
-  //min-height: 70vh;
-  //margin-top: 80px; // if header is fixed do mt: headerHeight
 }
 
+.container, .container-m {
+    position: relative;
+    flex: 0 0 auto;
+}
 .container {
-  position: relative;
-  flex: 0 0 auto;
   margin: 0 auto;
-  width: 100%;
   max-width: $lgDesktopWidth;
-  @media screen and (max-width: $lgDesktopWidth) {
-    padding: 0 16px;
-  }
-  @media screen and (max-width: $smDesktopWidth) {
-    max-width: $tableWidth;
-  }
-  @media screen and (max-width: $tableWidth) {
-    max-width: $smTableWidth;
-  }
-  @media screen and (max-width: $smTableWidth) {
-    max-width: $phoneWidth;
-  }
-  @media screen and (max-width: $phoneWidth) {
-    max-width: $phoneWidth;
-  }
-  @media screen and (max-width: $smPhoneWidth) {
-    max-width: $smPhoneWidth;
-  }
 }
-
-.view-sm {
-  max-width: 700px;
-  &.isCenter {
-    margin-left: auto;
-    margin-right: auto;
-  }
+.container-m {
+  margin: 0;
+ // width: 100vw;
+  width: 380px;
 }
 
 .bold {

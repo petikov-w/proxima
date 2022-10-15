@@ -1,17 +1,28 @@
 <template lang="pug">
 //include ../assets/pug/mixins
 footer.footer
-  .footer-wrapper
-    // Если текущая страница - Домашняя или Спасибо или 404
-    router-link(v-if="isHome || isThankYou || is404" :to={name:"policy"} @click="sk" class="link" ) {{ policy }}
-    router-link(v-if="isHome || isThankYou || is404" :to={name:"useragreement"} @click="sk" class="link" ) {{ agreement }}
-    // Если текущая страница - Политика
-    router-link(v-if="isPolicy" :to={name:"home"} @click="sk" class="link" ) Вернуться на главную
-    router-link(v-if="isPolicy" :to={name:"useragreement"} @click="sk" class="link" ) {{ agreement }}
-    // Если текущая страница - Соглашение
-    router-link(v-if="isUserAgreement" :to={name:"policy"} @click="sk" class="link" ) {{ policy }}
-    router-link(v-if="isUserAgreement" :to={name:"home"} @click="sk" class="link" ) Вернуться на главную
-
+  div(v-if="isDesktop" )
+    .footer-wrapper
+      // Если текущая страница - Домашняя или Спасибо или 404
+      router-link(v-if="isHome || isThankYou || is404" :to={name:"policy"} @click="sk" class="link" ) {{ policy }}
+      router-link(v-if="isHome || isThankYou || is404" :to={name:"useragreement"} @click="sk" class="link" ) {{ agreement }}
+      // Если текущая страница - Политика
+      router-link(v-if="isPolicy" :to={name:"home"} @click="sk" class="link" ) Вернуться на главную
+      router-link(v-if="isPolicy" :to={name:"useragreement"} @click="sk" class="link" ) {{ agreement }}
+      // Если текущая страница - Соглашение
+      router-link(v-if="isUserAgreement" :to={name:"policy"} @click="sk" class="link" ) {{ policy }}
+      router-link(v-if="isUserAgreement" :to={name:"home"} @click="sk" class="link" ) Вернуться на главную
+  div(v-if="isMobile" )
+    .footer-wrapper-m
+      // Если текущая страница - Домашняя или Спасибо или 404
+      router-link(v-if="isHome || isThankYou || is404" :to={name:"policy"} @click="sk" class="link" ) {{ policy }}
+      router-link(v-if="isHome || isThankYou || is404" :to={name:"useragreement"} @click="sk" class="link" ) {{ agreement }}
+      // Если текущая страница - Политика
+      router-link(v-if="isPolicy" :to={name:"home"} @click="sk" class="link" ) Вернуться на главную
+      router-link(v-if="isPolicy" :to={name:"useragreement"} @click="sk" class="link" ) {{ agreement }}
+      // Если текущая страница - Соглашение
+      router-link(v-if="isUserAgreement" :to={name:"policy"} @click="sk" class="link" ) {{ policy }}
+      router-link(v-if="isUserAgreement" :to={name:"home"} @click="sk" class="link" ) Вернуться на главную
     //+formula("Привет")
 
 </template>
@@ -32,11 +43,13 @@ export default {
     const isUserAgreement = computed(() => route.name==='useragreement' ? true : false);
     const isThankYou = computed(() => route.name==='thankyou' ? true : false);
     const is404 = computed(() => route.name==='404' ? true : false);
+    const isMobile = computed(() => store.getters.getIsMobile);
+    const isDesktop = computed(() => store.getters.getIsDesktop);
 
     const policy = computed(() => store.getters.getPolicy);
     const agreement = computed(() => store.getters.getUserAgreement);
 
-    return {policy, agreement, isHome, isPolicy, isUserAgreement, isThankYou, is404, sk}
+    return {policy, agreement, isHome, isPolicy, isUserAgreement, isThankYou, is404, isMobile, isDesktop, sk}
 
   }
 }

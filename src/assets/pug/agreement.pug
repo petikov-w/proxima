@@ -1,0 +1,35 @@
+.pageTitle(v-if="isDesktop") {{ pageTitle }}
+.pageTitle(v-if="isMobile" style="font-size: 26px; text-align: center") {{ pageTitle }}
+.pageText(v-html="pageSubTitle")
+.pageText.bold.b5(v-html="pageList1Title" )
+ul
+    li(v-for="item in pageList1Items" :key="index")
+        .pageText(v-html="item" )
+.pageText.bold.b5(v-html="pageList2Title" )
+ul
+    li(v-for="item in pageList2Items" :key="index")
+        .pageText(v-html="item" )
+.pageText.bold.b5(v-html="pageList3Title" )
+ul
+    li(v-for="item in pageList3Items" :key="index")
+        .pageText(v-html="item" )
+.pageText.bold.b5(v-html="pageList4Title" )
+ul
+    li(v-for="item in pageList4Items" :key="index")
+        .pageText(v-html="item" )
+.pageText.bold.b5(v-html="pageList5Title" )
+ul
+    li(v-for="item in pageList5Items" :key="index")
+        .pageText(v-html="item" )
+.pageText.bold.b5(v-html="pageList6Title" )
+ul
+    li(v-for="item in pageList6Items" :key="index")
+        .pageText(v-html="item" )
+.pageText.bold.b5(v-html="pageList7Title" )
+ul
+    li(v-for="item in pageList7Items" :key="index")
+        .pageText(v-html="item" )
+.pageText.bold.b5(v-html="pageList8Title" )
+ul
+    li(v-for="item in pageList8Items" :key="index")
+        .pageText(v-html="item" )
