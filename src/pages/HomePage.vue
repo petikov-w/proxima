@@ -1,6 +1,8 @@
 <template lang="pug">
-Dialog(v-model:show="dialogVisible")
+Dialog(v-model:show="dialogVisible1")
   include ../assets/pug/formGasOrder
+Dialog(v-model:show="dialogVisible2")
+  include ../assets/pug/formExpressQuestion
   //----------------------- Десктопная версия -----------------------
 div(v-if="isDesktop" )
   .wrapper-home
@@ -15,7 +17,7 @@ div(v-if="isDesktop" )
               .procent {{ info.procent }}
               .name-gaz {{ info.gaz }}
         .subtitle {{ subtitle }}
-        img(:src="btnOrder" @click="showDialog")
+        img(:src="btnOrder" @click="showDialog1")
       .right-col
         img(:src="imgBigCar" class="img-car")
     section-02
@@ -37,7 +39,8 @@ div(v-if="isMobile" )
           .procent {{ info.procent }}
           .name-gaz {{ info.gaz }}
     .subtitle-m {{ subtitle }}
-    img(:src="btnOrder" @click="showDialog")
+    img.mb10(:src="btnOrder" @click="showDialog1")
+    img(:src="btnQuest" @click="showDialog2")
     //.right-col
     //  img(:src="imgBigCar" class="img-car")
     section-02
@@ -62,10 +65,15 @@ export default {
   components: {Dialog},
 
   setup() {
-    let in_name = ref("")
-    let in_telefon = ref("")
-    const form_title = "Получите расчет стоимости доставки";
-    const dialogVisible = ref(false)
+    let in_name = ref("");
+    let in_telefon = ref("");
+    let eq_name = ref("");
+    let eq_telefon = ref("");
+    let eq_question = ref("");
+    const form_title1 = "Получите расчет стоимости доставки";
+    const form_title2 = "Задайте свой вопрос";
+    const dialogVisible1 = ref(false)
+    const dialogVisible2 = ref(false)
 
 
     const store = useStore();
@@ -73,6 +81,7 @@ export default {
     const subtitle = computed(() => store.getters.getSubtitle);
     const info = computed(() => store.getters.getInfo);
     const btnOrder = computed(() => store.getters.getButtonOrdrer);
+    const btnQuest = computed(() => store.getters.getButtonQuest);
     const imgBigCar = computed(() => store.getters.getImageBigCar);
     const advantage = computed(() => store.getters.getAdvantageList);
     const order = computed(() => store.getters.getOrder);
@@ -80,14 +89,20 @@ export default {
     const isDesktop = computed(() => store.getters.getIsDesktop);
 
 
-    const showDialog = () => {
-      dialogVisible.value = true
+    const showDialog1 = () => {
+      dialogVisible1.value = true
     }
-    const hiddenDialogCloseBtn = () => {
-      dialogVisible.value = false;
+    const showDialog2 = () => {
+      dialogVisible2.value = true
     }
-    const hiddenDialog = () => {
-      dialogVisible.value = false;
+    const hiddenDialogCloseBtn1 = () => {
+      dialogVisible1.value = false;
+    }
+    const hiddenDialogCloseBtn2 = () => {
+      dialogVisible2.value = false;
+    }
+    const hiddenDialog1 = () => {
+      dialogVisible1.value = false;
       let formData = new FormData();
       formData.append('name', in_name.value);
       formData.append('telefon', in_telefon.value);
@@ -97,28 +112,52 @@ export default {
       store.dispatch("setOrder",  formData )
       $router.push('/thankyou')
     }
+    const hiddenDialog2 = () => {
+      dialogVisible2.value = false;
+      let formData = new FormData();
+      formData.append('name', eq_name.value);
+      formData.append('telefon', eq_telefon.value);
+      formData.append('question', eq_question.value);
+      eq_name.value="";
+      eq_telefon.value="";
+      eq_question.value="";
+      store.dispatch("sendMail",  formData )
+      $router.push('/thankyou')
+    }
     return {
       isMobile,
       isDesktop,
       in_name,
       in_telefon,
-      dialogVisible,
+      // dialogVisible,
+      dialogVisible1,
+      dialogVisible2,
       title,
       subtitle,
       info,
       btnOrder,
+      btnQuest,
       imgBigCar,
       advantage,
       order,
-      form_title,
-      showDialog,
-      hiddenDialog,
-      hiddenDialogCloseBtn
+      form_title1,
+      form_title2,
+      //showDialog,
+      showDialog1,
+      showDialog2,
+      //hiddenDialog,
+      hiddenDialog1,
+      hiddenDialog2,
+      //hiddenDialogCloseBtn,
+      hiddenDialogCloseBtn1,
+      hiddenDialogCloseBtn2
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-
+ .mb10 {
+   margin-bottom: 10px;
+ }
 </style>

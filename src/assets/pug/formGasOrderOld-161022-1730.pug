@@ -1,10 +1,10 @@
 form.note-form(@submit.prevent="onSubmit")
     .header-title
         //.form-title Получите расчет стоимости доставки
-        .form-title {{ form_title1 }}
-        //.form-title(v-if="isDesktop") {{ form_title1 }}
-        //.form-title(v-if="isMobile") {{ form_title2 }}
-        .close-form(@click="hiddenDialogCloseBtn1") &#10005
+        //.form-title {{ form_title }}
+        .form-title(v-if="isDesktop") {{ form_title1 }}
+        .form-title(v-if="isMobile") {{ form_title2 }}
+        .close-form(@click="hiddenDialogCloseBtn") &#10005
     input(
         required
         name="name"
@@ -15,4 +15,4 @@ form.note-form(@submit.prevent="onSubmit")
         name="telefon"
         v-model="in_telefon"
         placeholder="Телефон")
-    img(src="@/assets/images/btn_zakaz_gaz.png" @click="hiddenDialog1")
+    img(src="@/assets/images/btn_zakaz_gaz.png" @click="hiddenDialog")

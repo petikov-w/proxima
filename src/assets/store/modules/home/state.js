@@ -13,6 +13,7 @@ export default {
     images: {
         big_car: require('@/assets/images/car_1.png'),
         button: require('@/assets/images/btn_zakaz_gaz.png'),
+        button_quest: require('@/assets/images/button-quest.png'),
         button_to_home: require('@/assets/images/btn_back_to_the_site.png')
     },
     advantage: {

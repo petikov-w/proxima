@@ -1,7 +1,9 @@
 form.note-form(@submit.prevent="onSubmit")
     .header-title
-        .form-title {{ form_title }}
-        .close-form(@click="hiddenDialogCloseBtn") &#10005
+        //.form-title(v-if="isDesktop") {{ form_title1 }}
+        //.form-title(v-if="isMobile") {{ form_title2 }}
+        .form-title {{ form_title2 }}
+        .close-form(@click="hiddenDialogCloseBtn2") &#10005
     input(
         required
         name="name"
@@ -17,4 +19,4 @@ form.note-form(@submit.prevent="onSubmit")
         name="question"
         v-model="eq_question"
         placeholder="Вопрос")
-    img(src="@/assets/images/button-question.png" @click="hiddenDialog")
+    img(src="@/assets/images/button-question.png" @click="hiddenDialog2")

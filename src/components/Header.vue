@@ -35,7 +35,7 @@ export default {
     let eq_name = ref("");
     let eq_telefon = ref("");
     let eq_question = ref("");
-    const form_title = "Задайте свой вопрос";
+    const form_title2 = "Задайте свой вопрос";
     const dialogVisible = ref(false)
 
     const store = useStore();
@@ -49,10 +49,10 @@ export default {
     const showDialog = () => {
       dialogVisible.value = true
     }
-    const hiddenDialogCloseBtn = () => {
+    const hiddenDialogCloseBtn2 = () => {
       dialogVisible.value = false;
     }
-    const hiddenDialog = () => {
+    const hiddenDialog2 = () => {
       dialogVisible.value = false;
       let formData = new FormData();
       formData.append('name', eq_name.value);
@@ -75,10 +75,10 @@ export default {
             isHome,
             isMobile,
             isDesktop,
-            form_title,
+            form_title2,
             showDialog,
-            hiddenDialogCloseBtn,
-            hiddenDialog,
+            hiddenDialogCloseBtn2,
+            hiddenDialog2,
             sk}
   }
 }
